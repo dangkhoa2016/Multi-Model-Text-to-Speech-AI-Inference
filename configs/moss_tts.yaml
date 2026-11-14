@@ -1,0 +1,23 @@
+# Bounded MOSS-TTS-v1.5 single-process pipeline for an L40S GPU.
+config_cls: MossTTSSingleProcessPipelineConfig
+model_path: /weights
+stages:
+  preprocessing:
+    factory:
+      device: cpu
+      compute_dtype: bfloat16
+      max_concurrency: 1
+      codec_model_path: /codec
+  tts_engine:
+    engine:
+      attention_backend: triton
+      disable_cuda_graph: true
+      max_running_requests: 1
+      mem_fraction_static: 0.70
+      cuda_graph_max_bs: 1
+  vocoder:
+    factory:
+      codec_model_path: /codec
+      dtype: bfloat16
+      max_batch_size: 1
+      max_batch_wait_ms: 2
