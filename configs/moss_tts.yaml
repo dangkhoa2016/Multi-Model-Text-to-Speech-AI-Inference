@@ -1,0 +1,5 @@
+# MOSS-TTS-v1.5 SGLang-Omni pipeline selector.
+# Adapted from https://github.com/sgl-project/sglang-omni/blob/main/examples/configs/moss_tts.yaml
+# Load the checkpoint exclusively from the worker's private Modal Volume.
+config_cls: MossTTSPipelineConfig
+model_path: /weights
