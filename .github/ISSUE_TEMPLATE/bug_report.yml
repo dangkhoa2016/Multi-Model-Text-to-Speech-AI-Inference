@@ -1,0 +1,16 @@
+name: Bug report
+description: Report a reproducible defect.
+title: "Bug: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Expected and observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Sanitized reproduction steps
+    validations:
+      required: true
